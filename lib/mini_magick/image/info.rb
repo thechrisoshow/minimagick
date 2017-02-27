@@ -42,7 +42,7 @@ module MiniMagick
 
       def cheap_info(value)
         @info.fetch(value) do
-          format, width, height, size = self["%m %w %h %b"].split(" ")
+          format, width, height, size = self["%m %w %h %b"].split("\n").last.split(" ")
 
           path = @path
           path = path.match(/\[\d+\]$/).pre_match if path =~ /\[\d+\]$/
